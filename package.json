@@ -4,7 +4,17 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env NODE_ENV=production nodemon npm run server/server.js",
+    "build": "concurrently \"cross-env NODE_ENV=production webpack \" \"nodemon ./server/server.js\"",
+    "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open \" \"nodemon ./server/server.js\"",
+    "gulp-prod": "node_modules/.bin/gulp prod",
+    "gulp-dev": "node_modules/.bin/gulp dev"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "build",
+      "client"
+    ]
   },
   "repository": {
     "type": "git",
@@ -22,7 +32,6 @@
     "cookie-parser": "^1.4.1",
     "express": "^4.17.1",
     "express-session": "^1.13.0",
-    "faker": "5.5.3",
     "gulp": "^4.0.2",
     "mongoose": "^5.11.8",
     "pg": "^8.8.0",
