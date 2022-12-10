@@ -1,0 +1,37 @@
+.formWrapper {
+  border: 1px solid black;
+  width: 80%;
+  height: 750px;
+  margin: auto;
+  position: relative;
+}
+
+.formContainer {
+  width: 640px; /* Can be in percentage also. */
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+  border: 1px solid black;
+  top: 35%
+}
+
+.textInput {
+  width: 100%;
+  font-size: 20px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+.loginButton {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}

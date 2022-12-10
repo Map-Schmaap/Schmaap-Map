@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100vw;
+  position: relative;
+  margin-bottom: 30px;
+  /* border: 1px solid #49586722; */
+}
+
+.navbarBtn {
+  height: 50px;
+  width: 130px;
+  font-size: 20px;
+  border-radius: 3px;
+}
+
+.appTitle {
+  font-size: 50px;
+  position: absolute;
+  left: 30;
+  color: #1b263b77;
+}
