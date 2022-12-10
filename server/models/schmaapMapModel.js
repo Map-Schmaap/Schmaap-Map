@@ -16,18 +16,19 @@ module.exports = {
 
 /*
 CREATE TABLE users (
-  user_id serial PRIMARY KEY,
+  user_id SERIAL PRIMARY KEY,
 	username VARCHAR UNIQUE NOT NULL,
 	password VARCHAR NOT NULL,
-	email VARCHAR UNIQUE,
+	email VARCHAR,
 	created_on TIMESTAMP
 );
 
 CREATE TABLE pins (
-  pin_id serial PRIMARY KEY,
+  pin_id SERIAL PRIMARY KEY,
 	latitude FLOAT NOT NULL,
 	longitude FLOAT NOT NULL,
-	user_id VARCHAR NOT NULL,
+  description VARCHAR,
+	user_id INT NOT NULL,
 	created_on TIMESTAMP 
 );
 
