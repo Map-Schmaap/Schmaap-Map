@@ -18,6 +18,7 @@ const markers = [
     id: 1,
     name: 'Chicago, Illinois',
     position: { lat: 41.881832, lng: -87.623177 },
+    description: 'I went to Sears Tower',
   },
   {
     id: 2,
