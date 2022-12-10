@@ -1,0 +1,28 @@
+.map {
+  border: 2px blue solid;
+  padding: 10px;
+  margin: 20px;
+}
+
+.infowindow {
+  background-color: blanchedalmond;
+  padding: 10px 4px;
+  border: 2px solid black;
+}
+
+/* .gm-style .gm-style-iw-c {
+  padding-right: 10px !important;
+  padding-bottom: 0px !important;
+  max-width: 500px !important;
+  max-height: 326px !important;
+  min-width: 0px !important;
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+  background-color: #dd9191;
+  border-radius: 8px;
+  box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.3);
+} */
