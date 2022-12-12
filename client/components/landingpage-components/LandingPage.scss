@@ -1,0 +1,124 @@
+#landingPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.trapdoor {
+  transform: translateZ(0px);
+  -webkit-font-smoothing: antialiased;
+  top: 20%;
+  left: 20%;
+  margin-left: -100px;
+  margin-top: -25px;
+  width: 600px;
+  height: 800px;
+
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  -webkit-transition: background 400ms ease-in-out;
+  -moz-transition: background 400ms ease-in-out;
+  -ms-transition: background 400ms ease-in-out;
+  -o-transition: background 400ms ease-in-out;
+  transition: background 400ms ease-in-out;
+  // background: #262626;
+
+  &:hover {
+    // background: #fff;
+    // background: #262626;
+    .door {
+      box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.4);
+      -webkit-transform: scale(1.08);
+      -moz-transform: scale(1.08);
+      -ms-transform: scale(1.08);
+      -o-transform: scale(1.08);
+      transform: scale(1.08);
+    }
+
+    .top {
+      top: -50%;
+      text-align: center;
+      background-image: url(topdoor.png);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    .bottom {
+      top: 100%;
+      background-image: url(bottomdoor.png);
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+  }
+
+  .navbar {
+    margin-left: -77px;
+    margin-top: -14px;
+    left: 50%;
+    top: 50%;
+  }
+}
+
+.top {
+  top: 0%;
+  left: 0px;
+  text-align: center;
+  background-image: url(topdoor.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  &:before {
+    top: 5px;
+  }
+}
+
+.bottom {
+  top: 50%;
+  left: 0px;
+  background-image: url(bottomdoor.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  &:before {
+    top: -20px;
+  }
+}
+
+.door {
+  -webkit-transition: top 400ms, box-shadow 200ms, -webkit-transform 300ms;
+  -moz-transition: top 400ms, box-shadow 200ms, -moz-transform 300ms;
+  -ms-transition: top 400ms, box-shadow 200ms, -ms-transform 300ms;
+  -o-transition: top 400ms, box-shadow 200ms, -o-transform 300ms;
+  transition: top 400ms, box-shadow 200ms, transform 300ms;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+  background-color: #fff;
+  // background: #262626;
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  z-index: 2;
+  height: 50%;
+
+  &:before {
+    font-size: 35px;
+    display: block;
+
+    width: 0px;
+    height: 20px;
+    left: 52%;
+  }
+}

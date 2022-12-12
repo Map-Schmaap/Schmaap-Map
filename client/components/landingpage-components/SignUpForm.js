@@ -47,6 +47,7 @@ const SignUpForm = () => {
   return (
     <div className={styles.formWrapper}>
       <div className={styles.formContainer}>
+        <h1>Signup</h1>
         <form onSubmit={handleSubmit}>
           {/* have 6 input forms and a register button*/}
           <input

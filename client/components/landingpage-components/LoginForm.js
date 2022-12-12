@@ -22,6 +22,7 @@ const LoginForm = (props) => {
     };
     // make the axios request to auth, passing in the username and password
     // axios request here
+    console.log(props);
     axios({
       method: 'post',
       url: 'http://localhost:3000/login',
@@ -51,6 +52,7 @@ const LoginForm = (props) => {
   return (
     <div className={styles.formWrapper}>
       <div className={styles.formContainer}>
+        <h1>Login</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
@@ -70,7 +72,7 @@ const LoginForm = (props) => {
           <button
             onClick={(event) => {
               event.preventDefault();
-              console.log('register button clicked');
+              navigate('/signup');
             }}
             className={styles.loginButton}
           >

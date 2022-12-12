@@ -1,7 +1,10 @@
-.map {
-  border: 2px blue solid;
-  padding: 10px;
-  margin: 20px;
+.mapWrapper {
+  /* border: 2px blue solid; */
+  border: 1px solid #4e4d4d;
+  min-height: 800px;
+  /* min-width: 50%; */
+  /* padding: 10px; */
+  /* margin: 20px; */
 }
 
 .infowindow {
