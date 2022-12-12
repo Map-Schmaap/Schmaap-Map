@@ -8,6 +8,8 @@
   background-color: blanchedalmond;
   padding: 10px 4px;
   border: 2px solid black;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 /* .gm-style .gm-style-iw-c {

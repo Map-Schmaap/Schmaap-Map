@@ -2,10 +2,10 @@ import React from 'react';
 import Navbar from '../UI/Navbar';
 import classes from './LandingPage.module.css';
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   return (
     <div>
-      <Navbar />
+      <Navbar user={props.user}/>
     </div>
   );
 };

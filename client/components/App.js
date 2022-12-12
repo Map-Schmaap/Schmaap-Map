@@ -14,7 +14,7 @@ const App = () => {
   });
   const [newMarker, setNewMarker] = useState({
     isOn: false,
-    position: { lat: 40.7128, lng: 74.006 },
+    position: {},
   });
 
   const changeSetNewMarkerHandler = (newMarker) => {
@@ -39,11 +39,11 @@ const App = () => {
     });
   });
 
-  console.log('USER: ', activeUser);
+  // console.log('USER: ', activeUser);
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
+      <Route path="/" element={<LandingPage user={activeUser}/>} />
       <Route
         path="/login"
         element={<LoginForm onLogin={setActiveUserSetter} />}

@@ -35,7 +35,7 @@ function MyComponent(props) {
   const onLoad = useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(props.center);
-    if (props.user.username) {
+    if (!activeMarker) {
       props.user.pins.forEach(({ position }) => bounds.extend(position));
     }
     map.fitBounds(bounds);
@@ -68,6 +68,7 @@ function MyComponent(props) {
         // props.onLogin(responseData.pins)
         if (responseData.status === 200) {
           props.onPinCreation(responseData.data);
+          props.changeMarker({isOn: false, position:{}})
         }
         //if success update activeUserState
         //redirect to mainpage
