@@ -12,20 +12,25 @@ sMController.checkAuth = (req, res, next) => {
 
 //--------------------LOGIN------------------------------------------------------------
 sMController.login = (req, res, next) => {
+  // console.log('SERVER===data==', req);
   const query = {
-    text: 'SELECT password FROM users WHERE username = $1',
+    text: 'SELECT user_id,password FROM users WHERE username = $1',
     values: [req.body.username],
   };
 
   db.query(query, (err, data) => {
-    if (err) return next({ err });
+    // console.log('SERVER======', query);
+    // console.log('SERVER====', data);
+    if (err) return res.status(404).send();
+    if (data.rowcount === 0) return res.status(401).send();
     password = data.rows[0].password;
+    user_id = data.rows[0].user_id;
 
-    console.log(
-      '===from SERVER hashpass from postgresQL',
-      password,
-      req.body.password
-    );
+    // console.log(
+    //   '===from SERVER hashpass from postgresQL',
+    //   password,
+    //   req.body.password
+    // );
 
     bcrypt.compare(req.body.password, password).then((result) => {
       if (!result) {
@@ -39,7 +44,9 @@ sMController.login = (req, res, next) => {
         // res.cookie(req.body.username, 'AUTHD');
         //res.redirect('/')
         // next();
-        res.status(200).send();
+        res.locals.user_id = user_id;
+        res.status(200);
+        next();
       }
     });
   });
@@ -63,7 +70,8 @@ sMController.createUser = (req, res, next) => {
 
       db.query(addUserQuery, (err, data) => {
         if (err) return next({ err });
-        console.log(data);
+        // console.log(data);
+        res.status(200);
         res.locals.response = data.rows[0];
         return next();
       });
@@ -75,13 +83,32 @@ sMController.createUser = (req, res, next) => {
 sMController.getUser = (req, res, next) => {
   const getUserQuery = {
     text: 'SELECT * FROM users u LEFT JOIN pins p ON u.user_id = p.user_id WHERE u.user_id = $1',
-    values: [req.body.user_id],
+    values: [req.body.user_id || res.locals.user_id],
   };
 
   db.query(getUserQuery, (err, data) => {
     if (err) return next({ err });
     // console.log(data);
-    res.locals.response = data.rows;
+    const sendBack = {
+      user_id: data.rows[0].user_id,
+      username: data.rows[0].username,
+      pins: data.rows.map((x) => {
+        return {
+          pin_id: x.pin_id,
+          position: { lat: x.latitude, lng: x.longitude },
+          name: x.name,
+          description: x.description,
+        };
+      }),
+    };
+
+    res.locals.response = sendBack;
+    // res.locals.response = {
+    //   id: 4,
+    //   name: 'New York, New York',
+    //   position: { lat: 40.712776, lng: -74.005974 },
+    //   description: 'I went to the Big Apple',
+    // };
     return next();
   });
 };
@@ -105,12 +132,13 @@ sMController.deleteUser = (req, res, next) => {
 sMController.createPin = (req, res, next) => {
   console.log('REQUEST:', req.body);
   const createPinQuery = {
-    text: 'INSERT INTO pins (latitude, longitude, user_id, description) VALUES ($1, $2, $3, $4) RETURNING *',
+    text: 'INSERT INTO pins (latitude, longitude, user_id, description, name) VALUES ($1, $2, $3, $4, $5) RETURNING *',
     values: [
-      req.body.latitude,
-      req.body.longitude,
+      req.body.lat,
+      req.body.lng,
       req.body.user_id,
       req.body.description,
+      req.body.name,
     ],
   };
 
