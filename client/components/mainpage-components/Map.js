@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 import {
   GoogleMap,
   useJsApiLoader,
@@ -34,7 +35,9 @@ function MyComponent(props) {
   const onLoad = useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(props.center);
-    props.user.pins.forEach(({ position }) => bounds.extend(position));
+    if (props.user.username) {
+      props.user.pins.forEach(({ position }) => bounds.extend(position));
+    }
     map.fitBounds(bounds);
 
     setMap(map);
@@ -45,6 +48,37 @@ function MyComponent(props) {
   }, []);
 
   //EVENT HANDLERS
+  const onNewPinCreationHandler = (e) => {
+    e.preventDefault();
+    const newPin = {
+      user_id: props.user.user_id,
+      lat: props.newMarker.position.lat,
+      lng: props.newMarker.position.lng,
+      name: e.target[0].value,
+      description: e.target[1].value,
+    };
+    // POST REQUest to MAKE NEW MARKER HEEERE
+    axios({
+      method: 'post',
+      url: 'http://localhost:3000/pin',
+      data: newPin,
+    })
+      .then((responseData) => {
+        console.log(responseData.data);
+        // props.onLogin(responseData.pins)
+        if (responseData.status === 200) {
+          props.onPinCreation(responseData.data);
+        }
+        //if success update activeUserState
+        //redirect to mainpage
+
+        //redirect to signup page
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const mapOnDblClickHandler = (e) => {
     props.changeMarker({
       position: { lat: e.latLng.lat(), lng: e.latLng.lng() },
@@ -64,13 +98,13 @@ function MyComponent(props) {
         onUnmount={onUnmount}
         onDblClick={mapOnDblClickHandler}
       >
-        {props.user.pins.map(({ id, name, position, description }) => (
+        {props.user.pins.map(({ pin_id, name, position, description }) => (
           <Marker
-            key={id}
+            key={pin_id}
             position={position}
-            onClick={() => handleActiveMarker(id)}
+            onClick={() => handleActiveMarker(pin_id)}
           >
-            {activeMarker === id ? (
+            {activeMarker === pin_id ? (
               <InfoWindow onCloseClick={() => setActiveMarker(null)}>
                 <Card className={classes.infowindow}>
                   <p>{name}</p>
@@ -93,10 +127,12 @@ function MyComponent(props) {
                 lat: props.newMarker.position.lat,
                 lng: props.newMarker.position.lng,
               }}
+              onCloseClick={() => setActiveMarker(null)}
             >
-              <form>
-                <input />
-                <button type="submit">Submit</button>
+              <form onSubmit={onNewPinCreationHandler}>
+                <input type="text" placeholder="Enter Name" />
+                <input type="text" placeholder="Enter Description" />
+                <button type="submit">Create Pin</button>
               </form>
             </InfoWindow>
           </Marker>

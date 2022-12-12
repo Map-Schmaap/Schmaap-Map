@@ -2,9 +2,10 @@ const express = require('express');
 const app = express();
 const path = require('path');
 var cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 //mostly for 3rd party api calls from backend middleware
-app.use(cookieParser()).use(express.json());
+app.use(cookieParser()).use(express.json()).use(cors());
 
 //define routers
 const userRouter = require('./routes/user');
@@ -21,12 +22,12 @@ const controllers = require('./controllers/controller.js');
 //   // res.sendFile(path.resolve(__dirname, '../client/login.html'));
 // });
 
-app.post('/login', controllers.login, (req, res, err) => {
+app.post('/login', controllers.login, controllers.getUser, (req, res, err) => {
   console.log('SUCCESS!');
-  res.send();
+  res.status(200).json(res.locals.response);
 });
 
-app.post('/signup', controllers.login, (req, res, err) => {
+app.post('/signup', controllers.createUser, (req, res, err) => {
   console.log('SUCCESS!');
   res.send();
 });

@@ -6,7 +6,7 @@ import Navbar from '../UI/Navbar';
 const MainPage = (props) => {
   return (
     <div>
-      <Navbar />
+      <Navbar user={props.user} />
       <Map
         center={props.center}
         user={props.user}

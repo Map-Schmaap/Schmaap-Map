@@ -12,10 +12,10 @@ const Navbar = (props) => {
           <Link to="/login">Login</Link>
         </Button>
         <Button className={classes.navbarBtn}>
-          <Link to="/signup">Signup</Link>
+          <Link to="/signup">Dumb Button</Link>
         </Button>
         <Button className={classes.navbarBtn}>
-          <Link to="/main">Main</Link>
+          <Link to="/login">Log out</Link>
         </Button>
       </ul>
     </nav>

@@ -29,7 +29,8 @@ CREATE TABLE pins (
 	longitude FLOAT NOT NULL,
   description VARCHAR,
 	user_id INT NOT NULL,
-	created_on TIMESTAMP 
+	created_on TIMESTAMP,
+  name VARCHAR
 );
 
 // STRETCH
