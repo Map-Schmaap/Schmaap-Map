@@ -22,12 +22,13 @@ module.exports = {
   ],
 
   devServer: {
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, '/client'),
     },
-    proxy: {
-      '/': 'http://localhost:3000',
-    },
+    // proxy: {
+    //   '/': 'http://localhost:3000',
+    // },
     compress: true,
     port: 8080,
   },
