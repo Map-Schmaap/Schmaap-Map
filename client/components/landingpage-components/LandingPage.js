@@ -14,10 +14,11 @@ import LoginForm from './LoginForm';
 const LandingPage = (props) => {
   return (
     <div id="landingPage">
+      <h1>MAP SCHMAAP</h1>
       <div className="trapdoor">
-        <div className="top door">ENTER THE SCHMAAPMAP</div>
+        <div className="top door"></div>
         {/* <Navbar className="navbar" user={props.user} /> */}
-        <LoginForm onLogin={props.onLogin} />
+        <LoginForm onLogin={props.onLogin} className={'loginFormOnLanding'} />
 
         <div className="bottom door"></div>
       </div>

@@ -1,18 +1,23 @@
 .mapWrapper {
   /* border: 2px blue solid; */
-  border: 1px solid #4e4d4d;
+  /* border: 1px solid #4e4d4d; */
   min-height: 800px;
   /* min-width: 50%; */
-  /* padding: 10px; */
+  padding: 10px;
   /* margin: 20px; */
 }
 
 .infowindow {
   background-color: blanchedalmond;
   padding: 10px 4px;
-  border: 2px solid black;
+  /* border: 2px solid black; */
   min-width: 100px;
   min-height: 100px;
+  /* color: black; */
+}
+
+.infowindow p {
+  color: black;
 }
 
 /* .gm-style .gm-style-iw-c {

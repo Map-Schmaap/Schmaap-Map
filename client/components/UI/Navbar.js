@@ -24,7 +24,7 @@ const Navbar = (props) => {
         )}
         {props.user.user_id && (
           <Button className={classes.navbarBtn}>
-            <Link to="/login" className={classes.btnText}>
+            <Link to="/" className={classes.btnText}>
               Log out
             </Link>
           </Button>
