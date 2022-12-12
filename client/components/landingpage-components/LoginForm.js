@@ -61,7 +61,7 @@ const LoginForm = (props) => {
             placeholder="Username"
           />
           <input
-            type="text"
+            type="password"
             name="password"
             className={styles.textInput}
             placeholder="Password"
