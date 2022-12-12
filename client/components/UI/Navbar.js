@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Navbar = (props) => {
   return (
     <nav>
-      <h1 className={classes.appTitle}>SCHMAAP-MAP</h1>
+      <h1 className={classes.appTitle}>Schmaap-Map</h1>
       <ul>
         {!props.user.user_id && (
           <Button className={classes.navbarBtn}>

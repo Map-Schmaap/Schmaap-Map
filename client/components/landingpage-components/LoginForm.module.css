@@ -1,16 +1,17 @@
 .formWrapper {
   /* border: 1px solid black; */
   width: 80%;
-  height: 750px;
+  height: 450px;
   margin: auto;
   position: relative;
 
   background: #262626;
   border: 1px solid #868686;
-  box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 4px 70px rgba(0, 0, 0, 0.15); */
   border-radius: 40px;
   display: flex;
   align-items: center;
+  /* justify-content: center; */
 }
 
 .formContainer {
@@ -21,8 +22,8 @@
   /* position: relative; */
   /* border: 1px solid black; */
   /* top: 35%; */
-  background: rgba(26, 26, 26, 0.65);
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.17);
+  /* background: rgba(26, 26, 26, 0.65); */
+  /* box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.17); */
   border-radius: 20px;
 }
 
@@ -75,4 +76,11 @@ h1 {
 .loginButton:hover {
   background: rgba(26, 26, 26, 0.65);
   border: 1px solid white;
+}
+
+#landingPage {
+  height: '100%';
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

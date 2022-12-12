@@ -22,6 +22,7 @@ const LoginForm = (props) => {
     };
     // make the axios request to auth, passing in the username and password
     // axios request here
+    console.log(props);
     axios({
       method: 'post',
       url: 'http://localhost:3000/login',

@@ -3,10 +3,12 @@ import Button from '../UI/Button';
 import classes from './PinList.module.css';
 
 const PinList = (props) => {
-  const pinListArr = props.user.pins.map((pin) => {
+  const pinListArr = props.user.pins.map((pin, i) => {
     return (
       <li>
-        <Button onClick={props.setCurrentMapCenterCoords}>{pin.name}</Button>
+        <Button onClick={props.setCurrentMapCenterCoords} key={i * 100}>
+          {pin.name}
+        </Button>
       </li>
     );
   });

@@ -1,0 +1,5 @@
+body {
+  background: #262626;
+  background-image: url('./worldBackground.png');
+  background-size: contain;
+}
