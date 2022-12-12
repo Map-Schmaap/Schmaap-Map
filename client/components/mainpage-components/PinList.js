@@ -5,15 +5,19 @@ import classes from './PinList.module.css';
 const PinList = (props) => {
   const pinListArr = props.user.pins.map((pin, i) => {
     return (
-      <li>
-        <Button onClick={props.setCurrentMapCenterCoords} key={i * 100}>
+      <li key={i * 100} className={classes.pinListItem}>
+        <p
+          onClick={props.setCurrentMapCenterCoords}
+          className={classes.pinName}
+        >
           {pin.name}
-        </Button>
+        </p>
+        <p className={classes.pinDescription}>{pin.description}</p>
       </li>
     );
   });
 
-  return <ul>{pinListArr}</ul>;
+  return <ul className={classes.pinListContainer}>{pinListArr}</ul>;
 };
 
 export default PinList;

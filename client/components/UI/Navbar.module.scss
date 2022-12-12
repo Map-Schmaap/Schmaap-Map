@@ -10,14 +10,15 @@ nav {
 }
 
 .navbarBtn {
-  // height: 50px;
-  // width: 130px;
+  height: 50px;
+  width: 130px;
   // font-size: 20px;
   // border-radius: 3px;
   // box-sizing: border-box;
   // background: rgba(26, 26, 26, 0.65);
   // box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
   // border-radius: 20px;
+  background: rgba(26, 26, 26, 0.65);
   border: 1px solid white;
 }
 
@@ -32,7 +33,7 @@ nav {
 }
 
 .appTitle {
-  font-size: 16px;
+  font-size: 36px;
   position: absolute;
   left: 30;
   color: white;
