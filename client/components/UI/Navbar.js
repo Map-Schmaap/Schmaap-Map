@@ -8,15 +8,27 @@ const Navbar = (props) => {
     <nav>
       <h1 className={classes.appTitle}>SCHMAAP-MAP</h1>
       <ul>
-       {!props.user.user_id && <Button className={classes.navbarBtn}>
-          <Link to="/login">Login</Link>
-        </Button>}
-        {!props.user.user_id && <Button className={classes.navbarBtn}>
-          <Link to="/signup">Sign Up</Link>
-        </Button>}
-        {props.user.user_id && <Button className={classes.navbarBtn}>
-          <Link to="/login">Log out</Link>
-        </Button>}
+        {!props.user.user_id && (
+          <Button className={classes.navbarBtn}>
+            <Link to="/login" className={classes.btnText}>
+              Login
+            </Link>
+          </Button>
+        )}
+        {!props.user.user_id && (
+          <Button className={classes.navbarBtn}>
+            <Link to="/signup" className={classes.btnText}>
+              Sign Up
+            </Link>
+          </Button>
+        )}
+        {props.user.user_id && (
+          <Button className={classes.navbarBtn}>
+            <Link to="/login" className={classes.btnText}>
+              Log out
+            </Link>
+          </Button>
+        )}
       </ul>
     </nav>
   );

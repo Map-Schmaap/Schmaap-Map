@@ -51,6 +51,7 @@ const LoginForm = (props) => {
   return (
     <div className={styles.formWrapper}>
       <div className={styles.formContainer}>
+        <h1>Login</h1>
         <form onSubmit={(e) => handleSubmit(e)}>
           <input
             type="text"
@@ -70,7 +71,7 @@ const LoginForm = (props) => {
           <button
             onClick={(event) => {
               event.preventDefault();
-              console.log('register button clicked');
+              navigate('/signup');
             }}
             className={styles.loginButton}
           >

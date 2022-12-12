@@ -4,8 +4,8 @@ import classes from './LandingPage.module.css';
 
 const LandingPage = (props) => {
   return (
-    <div>
-      <Navbar user={props.user}/>
+    <div className={classes.landingPageContainer}>
+      <Navbar user={props.user} />
     </div>
   );
 };

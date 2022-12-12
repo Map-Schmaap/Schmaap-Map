@@ -10,7 +10,7 @@ import classes from './Map.module.css';
 import Card from '../UI/Card';
 
 const containerStyle = {
-  width: '60vw',
+  width: '70vw',
   height: '100%',
 };
 
@@ -68,7 +68,7 @@ function MyComponent(props) {
         // props.onLogin(responseData.pins)
         if (responseData.status === 200) {
           props.onPinCreation(responseData.data);
-          props.changeMarker({isOn: false, position:{}})
+          props.changeMarker({ isOn: false, position: {} });
         }
         //if success update activeUserState
         //redirect to mainpage
@@ -90,7 +90,7 @@ function MyComponent(props) {
   };
 
   return isLoaded ? (
-    <div className={classes.map}>
+    <div className={classes.mapWrapper}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={props.center}
