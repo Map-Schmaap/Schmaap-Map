@@ -82,7 +82,8 @@ sMController.createUser = (req, res, next) => {
 //--------------------GET---USER and PINS MEGA QUERY---------------------------------------------------------
 sMController.getUser = (req, res, next) => {
   const getUserQuery = {
-    text: 'SELECT * FROM users u LEFT JOIN pins p ON u.user_id = p.user_id WHERE u.user_id = $1',
+    text: 'SELECT u.*, p.longitude,p.latitude, p.description, p.name, p.pin_id FROM users u LEFT JOIN pins p ON u.user_id = p.user_id WHERE u.user_id = $1',
+    // text: 'SELECT u.*, p.longitude,p.latitude, p.description, p.name, p.pin_id',
     values: [req.body.user_id || res.locals.user_id],
   };
 

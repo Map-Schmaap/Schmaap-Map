@@ -7,8 +7,11 @@
   margin-right: 50px;
   margin-bottom: auto;
   border-radius: 6px;
+  text-decoration: none;
+  font-family: Manrope;
+  font-weight: 800;
 }
-
+/* hello from button */
 .button:hover,
 .button:active {
   background: #bdd5ea;

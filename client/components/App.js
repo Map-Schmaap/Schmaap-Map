@@ -4,6 +4,7 @@ import SignUpForm from './landingpage-components/SignUpForm';
 import MainPage from './mainpage-components/MainPage';
 import LandingPage from './landingpage-components/LandingPage';
 import { Route, Routes } from 'react-router-dom';
+import classes from './App.module.css';
 
 const App = () => {
   //DECLARING OUR STATES
@@ -43,7 +44,12 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<LandingPage user={activeUser}/>} />
+      <Route
+        path="/"
+        element={
+          <LandingPage user={activeUser} onLogin={setActiveUserSetter} />
+        }
+      />
       <Route
         path="/login"
         element={<LoginForm onLogin={setActiveUserSetter} />}
@@ -59,6 +65,7 @@ const App = () => {
               changeMarker={changeSetNewMarkerHandler}
               newMarker={newMarker}
               onPinCreation={setActiveUserSetter}
+              setCurrentMapCoords={setCurrentMapCenterCoords}
             />
           ) : (
             <LoginForm onLogin={setActiveUserSetter} />

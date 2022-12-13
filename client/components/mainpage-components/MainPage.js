@@ -8,14 +8,19 @@ const MainPage = (props) => {
   return (
     <div>
       <Navbar user={props.user} />
-      <Map
-        center={props.center}
-        user={props.user}
-        changeMarker={props.changeMarker}
-        newMarker={props.newMarker}
-        onPinCreation={props.onPinCreation}
-      />
-      <PinList user={props.user}/>
+      <div className={classes.mapContentWrapper}>
+        <PinList
+          user={props.user}
+          setCurrentMapCenterCoords={props.setCurrentMapCenterCoords}
+        />
+        <Map
+          center={props.center}
+          user={props.user}
+          changeMarker={props.changeMarker}
+          newMarker={props.newMarker}
+          onPinCreation={props.onPinCreation}
+        />
+      </div>
     </div>
   );
 };

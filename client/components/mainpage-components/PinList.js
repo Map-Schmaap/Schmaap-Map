@@ -1,21 +1,23 @@
-import React from 'react'
-import Button from '../UI/Button'
-import classes from './PinList.module.css'
+import React from 'react';
+import Button from '../UI/Button';
+import classes from './PinList.module.css';
 
 const PinList = (props) => {
-  const pinListArr = props.user.pins.map(pin => {
+  const pinListArr = props.user.pins.map((pin, i) => {
     return (
-        <li>
-          <Button>{pin.name}</Button>
-        </li>
-    )
-  })
-  
-  return (
-    <ul>
-      {pinListArr}
-    </ul>
-  )
-}
+      <li key={i * 100} className={classes.pinListItem}>
+        <p
+          onClick={props.setCurrentMapCenterCoords}
+          className={classes.pinName}
+        >
+          {pin.name}
+        </p>
+        <p className={classes.pinDescription}>{pin.description}</p>
+      </li>
+    );
+  });
 
-export default PinList
+  return <ul className={classes.pinListContainer}>{pinListArr}</ul>;
+};
+
+export default PinList;

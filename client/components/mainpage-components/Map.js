@@ -10,7 +10,7 @@ import classes from './Map.module.css';
 import Card from '../UI/Card';
 
 const containerStyle = {
-  width: '60vw',
+  width: '65vw',
   height: '100%',
 };
 
@@ -35,7 +35,7 @@ function MyComponent(props) {
   const onLoad = useCallback(function callback(map) {
     // This is just an example of getting and using the map instance!!! don't just blindly copy!
     const bounds = new window.google.maps.LatLngBounds(props.center);
-    if (!activeMarker) {
+    if (props.user.pins[0].pin_id) {
       props.user.pins.forEach(({ position }) => bounds.extend(position));
     }
     map.fitBounds(bounds);
@@ -68,7 +68,7 @@ function MyComponent(props) {
         // props.onLogin(responseData.pins)
         if (responseData.status === 200) {
           props.onPinCreation(responseData.data);
-          props.changeMarker({isOn: false, position:{}})
+          props.changeMarker({ isOn: false, position: {} });
         }
         //if success update activeUserState
         //redirect to mainpage
@@ -88,9 +88,10 @@ function MyComponent(props) {
     console.log('latitide = ', e.latLng.lat());
     console.log('longitude = ', e.latLng.lng());
   };
+  console.log(props.user);
 
   return isLoaded ? (
-    <div className={classes.map}>
+    <div className={classes.mapWrapper}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={props.center}
